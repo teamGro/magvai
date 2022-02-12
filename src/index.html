@@ -14,7 +14,14 @@
   <header class="header">
     <div class="header__wrapper container">
       <a href="/" class="header__logo">
-        <img class="header__logo-img" id="logo" src="./img/logo.png" alt="magvai">
+        <picture>
+
+        </picture>
+
+        <picture>
+          <source type="image/webp" srcset="./img/logo.webp">
+          <img class="header__logo-img" id="logo" src="./img/logo.png" alt="magvai">
+        </picture>
       </a>
 
       <nav class="header__nav">
@@ -125,6 +132,20 @@
         </div>
       </div>
     </section>
+
+    <section class="cards container">
+      <h2 class="cards__title">Карточки</h2>
+
+      <ul class="cards__list" id="cards">
+      </ul>
+
+      <div class="cards__btn-wrapper">
+        <button class="btn">
+          <span class="btn__text" id="dowloadMore">ЗАГРУЗИТЬ ЕЩЕ</span>
+        </button>
+      </div>
+    </section>
+
   </main>
 
   <script src="./scripts/jquery.js"></script>

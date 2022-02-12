@@ -14,6 +14,8 @@ const minify = require('gulp-minify');
 const autoprefixer = require('gulp-autoprefixer');
 const rollup = require('gulp-rollup');
 const less = require('gulp-less');
+const imagemin = require('gulp-imagemin');
+const webp = require('gulp-webp');
 
 let isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
@@ -48,7 +50,6 @@ gulp.task('getAllCSS', () => {
           cascade: false,
         })
       )
-      //.pipe(gulp.dest("public/styles"))
       .pipe(cssmin())
       .pipe(rename('styles.min.css'))
       .pipe(gulp.dest('public/styles'))
@@ -59,15 +60,9 @@ gulp.task('clean', (done) => {
   del(['public/styles/styles.css']);
   del(['public/*.html']);
   del(['public/scripts/script-min.js']);
+  del(['public/img/*.{jpg, png, webp}']);
   done();
 });
-
-// gulp.task("copy", () => {
-//     return gulp
-//         .src("src/*.html")
-//         .pipe(htmlmin({ collapseWhitespace: true }))
-//         .pipe(gulp.dest("public"));
-// });
 
 gulp.task('getAllJS', () => {
   return gulp
@@ -97,13 +92,39 @@ gulp.task('getAllJS', () => {
     .pipe(gulp.dest('./public/scripts'));
 });
 
+gulp.task('getImg', () => {
+  return gulp
+    .src('src/img/*', { since: gulp.lastRun('getImg') })
+    .pipe(imagemin([
+      imagemin.mozjpeg({ quality: 75, progressive: true }),
+      imagemin.optipng({ optimizationLevel: 5 }),
+      imagemin.svgo({
+        plugins: [
+          {
+            removeViewBox: true
+          }
+        ]
+      })
+    ], {
+      verbose: true
+    }))
+    .pipe(gulp.dest('public/img/'))
+});
+
+gulp.task('transformImgToWebp', () =>
+  gulp.src('src/img/*.{jpg,png}')
+    .pipe(webp())
+    .pipe(gulp.dest('public/img/'))
+);
+
 gulp.task('watch', () => {
   gulp.watch('src/styles/*.less', gulp.series('getAllCSS'));
   gulp.watch('src/*.html', gulp.series('getHTML'));
   gulp.watch('src/scripts/*.js', gulp.series('getAllJS'));
+  gulp.watch('src/img/*.{png, jpg}', gulp.series('getImg', 'transformImgToWebp'));
 });
 
-gulp.task('build', gulp.series('clean', gulp.parallel('getAllCSS', 'getHTML', 'getAllJS')));
+gulp.task('build', gulp.series('clean', 'getImg', 'transformImgToWebp', gulp.parallel('getAllCSS', 'getHTML', 'getAllJS')));
 
 gulp.task('serve', () => {
   browserSync.init({
