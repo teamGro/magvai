@@ -22,4 +22,18 @@
     display: flex;
     justify-content: center;
   }
+
+  &__btn-loader {
+    display: none;
+  }
+
+  &__btn {
+    &--loading .btn__text {
+      display: none;
+    }
+
+    &--loading .cards__btn-loader {
+      display: block;
+    }
+  }
 }

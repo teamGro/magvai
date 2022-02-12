@@ -17,10 +17,16 @@ $(document).ready(() => {
 
   const downloadMoreBtn = $('#dowloadMore');
   const requestQty = 6;
-  downloadMoreBtn.on('click', () => {
-    for (let i = 0; i < requestQty; i++) {
-      downloadPostAndRender(cardsList);
-    }
+  downloadMoreBtn.on('click', function () {
+    $(this).addClass('cards__btn--loading');
+    const self = $(this);
+    setTimeout(function () {
+      for (let i = 0; i < requestQty; i++) {
+        downloadPostAndRender(cardsList);
+      }
+
+      self.removeClass('cards__btn--loading');
+    }, 3000);
   });
 
 });

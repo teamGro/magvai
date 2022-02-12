@@ -113,7 +113,7 @@
                 <p class="card__desc">${card.desc}</p>
                 <p class="card__text">${card.text}</p>
                 <p class="card__posted">
-                  ${card.posted} <span class="card_posted--bold">${card.author}</span> ${card.date}
+                  ${card.posted} <span class="card__posted--bold">${card.author}</span> ${card.date}
                 </p>
                 <a href="#" class="card__btn">Continue reading</a>
               </div>
@@ -143,14 +143,20 @@
 
       const downloadMoreBtn = $('#dowloadMore');
       const requestQty = 6;
-      downloadMoreBtn.on('click', () => {
-        for (let i = 0; i < requestQty; i++) {
-          downloadPostAndRender(cardsList);
-        }
+      downloadMoreBtn.on('click', function () {
+        $(this).addClass('cards__btn--loading');
+        const self = $(this);
+        setTimeout(function () {
+          for (let i = 0; i < requestQty; i++) {
+            downloadPostAndRender(cardsList);
+          }
+
+          self.removeClass('cards__btn--loading');
+        }, 3000);
       });
 
     });
 
 }());
 
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZXMiOltdLCJzb3VyY2VzQ29udGVudCI6W10sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OyJ9
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZXMiOltdLCJzb3VyY2VzQ29udGVudCI6W10sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OyJ9

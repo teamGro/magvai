@@ -110,7 +110,7 @@ function renderCard(card) {
                 <p class="card__desc">${card.desc}</p>
                 <p class="card__text">${card.text}</p>
                 <p class="card__posted">
-                  ${card.posted} <span class="card_posted--bold">${card.author}</span> ${card.date}
+                  ${card.posted} <span class="card__posted--bold">${card.author}</span> ${card.date}
                 </p>
                 <a href="#" class="card__btn">Continue reading</a>
               </div>
