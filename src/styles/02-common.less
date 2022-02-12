@@ -1,0 +1,174 @@
+@import '01-variables.less';
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: 
+       url('../fonts/montserrat-v21-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/montserrat-v21-latin-regular.woff') format('woff'), /* Modern Browsers */
+}
+/* montserrat-800 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: 
+       url('../fonts/montserrat-v21-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/montserrat-v21-latin-800.woff') format('woff'), /* Modern Browsers */
+}
+/* montserrat-900 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: 
+       url('../fonts/montserrat-v21-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/montserrat-v21-latin-900.woff') format('woff'), /* Modern Browsers */
+}
+
+/* mulish-regular - latin */
+@font-face {
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 400;
+font-display: swap;
+src: 
+     url('../fonts/mulish-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+     url('../fonts/mulish-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
+}
+/* mulish-900 - latin */
+@font-face {
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 900;
+font-display: swap;
+src: 
+     url('../fonts/mulish-v7-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
+     url('../fonts/mulish-v7-latin-900.woff') format('woff'), /* Modern Browsers */
+}
+
+html {
+  width     : 100%;
+  max-width : 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+
+  margin    : 0;
+  padding   : 0;
+  width     : 100%;
+  max-width : 100%;
+  overflow-x: hidden;
+
+  background-color: @mainBg;
+
+  font-family   : @Montserrat, Arial, sans-serif;
+  font-size     : @fontSize;
+  font-weight   : 400;
+  color         : @fontColor;
+  line-height   : @lineHeight;
+  word-wrap     : break-word;
+  letter-spacing: 0em;
+
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height   : auto;
+}
+
+a {
+  text-decoration: none;
+  color          : inherit;
+  font           : inherit;
+  cursor         : pointer;
+}
+
+ul {
+  list-style: none;
+  padding   : 0;
+  margin    : 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  padding: 0;
+  margin : 0;
+
+  font: inherit;
+}
+
+button {
+  border : none;
+  margin : 0;
+  padding: 0;
+
+  font: inherit;
+
+  background-color: transparent;
+  cursor          : pointer;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip    : rect(1px 1px 1px 1px);
+  clip    : rect(1px, 1px, 1px, 1px);
+  border  : 0 !important;
+  height  : 1px !important;
+  width   : 1px !important;
+  padding : 0 !important;
+  overflow: hidden;
+}
+
+.container {
+  min-width: 292px;
+  max-width: 1720px;
+  margin: 0 auto;
+}
+
+.btn {
+  position: relative;
+
+  padding: 21px 71px;
+  margin-right: 24px;
+  transform: skewX(-18deg);
+
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 150%;
+  color: #FFFFFF;
+
+  background-color: #C2AB81;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 0;
+
+    height: 100%;
+    width: 5px;
+
+    background-color: #fff;
+  }
+
+  &__text {
+    transform: skewX(18deg);
+    display: inline-block;
+  }
+}
