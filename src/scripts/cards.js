@@ -100,7 +100,7 @@ export function renderStartCards(cards, listElement) {
 
 function renderCard(card) {
     return `
-            <li class="cards__item card">
+            <li class="cards__item card card--new">
               <picture>
                 <source srcset="./img/${card.img}.webp" type="image/webp">
                 <img src="./img/${card.img}.jpg" alt="bridge">

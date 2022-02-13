@@ -1,5 +1,7 @@
+@import "./01-variables.less";
+
 @cls-name: loader__bubble;
-@bubles-count: 6;
+@bubles-count: 5;
 
 .generate-bubles-delay(@i: 1) when (@i =< @bubles-count) {
   .@{cls-name}:nth-of-type(@{i}) .loader__circle {
@@ -21,6 +23,12 @@
   &__bubble {
     display: inline-block;
     padding: 0px 5px;
+
+    &:last-child {
+      .bp(@xl, {
+        display: none;
+      });
+    }
   }
 
   &__circle {
@@ -29,7 +37,7 @@
     border-radius: 50%;
     background: #fff;
     -webkit-animation: pulse 1.5s infinite;
-            animation: pulse 1.5s infinite;
+    animation: pulse 1.5s infinite;
   }
 }
 

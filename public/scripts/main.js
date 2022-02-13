@@ -103,7 +103,7 @@
 
     function renderCard(card) {
         return `
-            <li class="cards__item card">
+            <li class="cards__item card card--new">
               <picture>
                 <source srcset="./img/${card.img}.webp" type="image/webp">
                 <img src="./img/${card.img}.jpg" alt="bridge">
@@ -128,6 +128,19 @@
         card.img = `card${Math.ceil(Math.random() * 10)}`;
         card.title = post.title;
         listElement.append(renderCard(card));
+    }
+
+    function toggleBurger(clsBurger, navElement, clsNav) {
+        $(this).toggleClass(clsBurger);
+        navElement.toggleClass(clsNav);
+
+        if ($(this).hasClass(clsBurger)) {
+            $(document.documentElement).css('overflow-y', 'hidden');
+            $(document.body).css('paddin-right', 0);
+        } else {
+            $(document.documentElement).css('overflow-y', 'auto');
+            $(document.body).css('padding-right', `${$(window).width() - $(document.body).width()}px`);
+        }
     }
 
     $(document).ready(() => {
@@ -155,8 +168,14 @@
         }, 3000);
       });
 
+      const burgerBtn = $('#burger');
+      const mobileNavElement = $('#mobileMenu');
+      burgerBtn.on('click', function () {
+        toggleBurger.call($(this), 'burger--active', mobileNavElement, 'mobile-nav--active');
+      });
+
     });
 
 }());
 
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZXMiOltdLCJzb3VyY2VzQ29udGVudCI6W10sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OyJ9
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZXMiOltdLCJzb3VyY2VzQ29udGVudCI6W10sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OzsifQ==

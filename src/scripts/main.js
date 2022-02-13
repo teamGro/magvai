@@ -4,6 +4,8 @@ import {
   downloadPostAndRender
 } from './cards';
 
+import toggleBurger from './burger';
+
 $(document).ready(() => {
   $('#mainSlider').owlCarousel({
     items: 1,
@@ -28,6 +30,12 @@ $(document).ready(() => {
       self.removeClass('cards__btn--loading');
     }, 3000);
   });
+
+  const burgerBtn = $('#burger');
+  const mobileNavElement = $('#mobileMenu');
+  burgerBtn.on('click', function () {
+    toggleBurger.call($(this), 'burger--active', mobileNavElement, 'mobile-nav--active');
+  })
 
 });
 

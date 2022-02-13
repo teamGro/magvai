@@ -7,3 +7,17 @@
 @Montserrat: "Montserrat";
 @mulish: "Mulish";
 @mainBg: #272727;
+
+@linear: 0.3s linear;
+@headerHeight: 101px;
+@mobileHeaderHeight: 80px;
+
+@sm: 320px;
+@md: 767px;
+@lg: 1279px;
+@xl: 1719px;
+.bp(@size, @rules) {
+  @media (max-width: @size) {
+    @rules();
+  }
+}

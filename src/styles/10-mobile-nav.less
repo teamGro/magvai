@@ -1,0 +1,130 @@
+@import "./01-variables.less";
+
+.mobile-nav {
+  position: absolute;
+  top: @headerHeight;
+  left: -100vw;
+  transform: translateX(0);
+  transition: transform @linear, opacity @linear 0.3s;
+
+  opacity: 0;
+  height: calc(100vh - @headerHeight);
+  width: 100vw;
+
+  background-color: #131313;
+
+  &--active {
+    transform: translateX(100vw);
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transition: transform @linear 0.1s;
+  }
+
+  .bp(@md, {
+    top: @mobileHeaderHeight;
+    height: calc(100vh - @mobileHeaderHeight);
+  });
+
+  &__wrapper {
+    padding-top: 55px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .bp(@md, {
+      padding-top: 20px;
+    });
+  }
+
+  &__nav-items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav-item {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__link {
+    font-weight: bold;
+    font-size: 2.5em;
+    line-height: 1.5;
+    color: #131313;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #808080;
+    transition: color @linear;
+
+    &:hover {
+      color: #fff;
+    }
+
+    .bp(@md, {
+      font-size: 1.4em;
+    });
+  }
+
+  &__bottom-wrapper {
+    display: none;
+
+    .bp(@md, {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: auto;
+    });
+  }
+
+  &__elem {
+    min-height: 60px;
+    width: 95%;
+    padding: 21px 71px;
+    transform: skewX(-18deg);
+
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 150%;
+    color: #ffffff;
+  }
+
+  &__phone {
+    margin-bottom: 6px;
+    border: 1px solid #ffffff;
+    -webkit-filter: drop-shadow(16px 16px 20px rgb(19, 18, 18)) invert(10%);
+    filter: drop-shadow(16px 16px 20px rgb(19, 18, 18)) invert(10%);
+
+    background-image: url("../img/phone.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__btn {
+    background-color: #c2ab81;
+  }
+
+  &__btn-text {
+    transform: skewX(18deg);
+    display: inline-block;
+  }
+}
+
+@-webkit-keyframes menuOn {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes menuOn {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateY(100vw);
+  }
+}

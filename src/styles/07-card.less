@@ -1,11 +1,33 @@
 @import "./01-variables.less";
 
+@cls-name: card__new;
+@card-count: 6;
+
+.generate-card-delay(@i: 1) when (@i =< @card-count) {
+  .@{cls-name}:nth-of-type(@{i}) {
+    -webkit-animation-delay: @i * 0.5s;
+    animation-delay: @i * 0.5s;
+  }
+
+  .generate-card-delay(@i + 1);
+}
+
 .card {
   display: flex;
   flex-direction: column;
+  transition: box-shadow @linear;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--new {
+    -webkit-animation: fade 0.3s linear;
+    animation: fade 0.3s linear;
+  }
 
   & > picture {
-    height: 185px;
+    height: auto;
   }
 
   &__img {
@@ -17,6 +39,7 @@
 
   &__wrapper {
     padding: 25px 24px 30px;
+    margin-top: -10px;
     background: #ffffff;
     color: #171717;
   }
@@ -71,5 +94,32 @@
     color: #ffffff;
 
     background-color: #171717;
+    transition: color @linear, background @linear;
+    outline: 1px solid #171717;
+
+    &:hover {
+      color: #171717;
+      background-color: #fff;
+    }
+  }
+}
+
+.generate-card-delay();
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

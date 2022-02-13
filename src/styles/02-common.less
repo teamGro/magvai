@@ -136,18 +136,29 @@ button {
 }
 
 .container {
-  min-width: 292px;
-  max-width: 1720px;
+  width: 1720px;
   margin: 0 auto;
+
+  .bp(@lg, {
+    width: 90%;
+  });
+
+  .bp(@xl, {
+    width: 80%;
+  });
+
+  .bp(@md, {
+    width: 100%;
+    margin: 0;
+    padding: 0 1.2rem;
+  });
 }
 
 .btn {
   position: relative;
 
   padding: 21px 71px;
-  margin-right: 24px;
   transform: skewX(-18deg);
-  min-width: 280px;
 
   font-weight: bold;
   font-size: 12px;
@@ -155,6 +166,16 @@ button {
   color: #ffffff;
 
   background-color: #c2ab81;
+  transition: background @linear, color @linear;
+
+  &:hover {
+    background-color: #fff;
+    color: #c2ab81;
+  }
+
+  .bp(@xl, {
+    padding: 21px 36px;
+  });
 
   &::after {
     content: "";

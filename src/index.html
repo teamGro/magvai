@@ -13,16 +13,56 @@
 <body>
   <header class="header">
     <div class="header__wrapper container">
-      <a href="/" class="header__logo">
-        <picture>
+      <button class="header__burger burger" id="burger">
+        <span class="burger__elem burger__elem--t"></span>
+        <span class="burger__elem burger__elem--m"></span>
+        <span class="burger__elem burger__elem--b"></span>
+      </button>
 
-        </picture>
+      <nav class="header__mobile-nav mobile-nav" id="mobileMenu">
+        <div class="mobile-nav__wrapper container">
+          <ul class="mobile-nav__items">
+            <li class="mobile-nav-item">
+              <a href="#" class="mobile-nav__link">УСЛУГИ</a>
+            </li>
+            <li class="mobile-nav__item">
+              <a href="#" class="mobile-nav__link">АБОНЕМЕНТЫ</a>
+            </li>
+            <li class="mobile-nav__item">
+              <a href="#" class="mobile-nav__link">ПОЧЕМУ МЫ</a>
+            </li>
+            <li class="mobile-nav__item">
+              <a href="#" class="mobile-nav__link">ОБОРУДОВАНИЕ</a>
+            </li>
+            <li class="mobile-nav__item">
+              <a href="#" class="mobile-nav__link">АКЦИИ</a>
+            </li>
+            <li class="mobile-nav__item">
+              <a href="#" class="mobile-nav__link">FАQ</a>
+            </li>
+            <li class="mobile-nav__item">
+              <a href="#" class="mobile-nav__link">КОНТАКТЫ</a>
+            </li>
+          </ul>
 
-        <picture>
-          <source type="image/webp" srcset="./img/logo.webp">
-          <img class="header__logo-img" id="logo" src="./img/logo.png" alt="magvai">
-        </picture>
-      </a>
+          <div class="mobile-nav__bottom-wrapper">
+            <a href="tel:+79116394512" class="mobile-nav__phone mobile-nav__elem">
+            </a>
+            <button class="mobile-nav__btn mobile-nav__elem">
+              <span class="mobile-nav__btn-text">ОСТАВИТЬ ЗАЯВКУ</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header__logo-wrapper">
+        <a href="/" class="header__logo">
+          <picture>
+            <source type="image/webp" srcset="./img/logo.webp">
+            <img class="header__logo-img" id="logo" src="./img/logo.png" alt="magvai">
+          </picture>
+        </a>
+      </div>
 
       <nav class="header__nav">
         <ul class="header__nav-items">
@@ -84,49 +124,47 @@
             </div>
           </div>
         </div>
-        <div class="slider__item slider__item--s">
-          <div class="slider__item">
-            <div class="slider__item-wrapper container">
-              <div class="slider__left">
-                <h2 class="slider__title">
-                  Полет Илона Маска и DOGIE COIN
-                </h2>
-                <p class="slider__text">
-                  Все в шоке, я потерял все деньги
-                </p>
-                <button class="btn slider__btn">
-                  <span class="btn__text">ОСТАВИТЬ ЗАЯВКУ</span>
-                </button>
-              </div>
 
-              <div class="slider__right">
-                <p class="slider__para ">DOgie coin</p>
-                <p class="slider__para slider__para--bold">ПАДЕНИЕ</p>
-                <p class="slider__para">ВОЗВРАЩЕНИЕ</p>
-              </div>
+        <div class="slider__item slider__item--s">
+          <div class="slider__item-wrapper container">
+            <div class="slider__left">
+              <h2 class="slider__title">
+                Полет Илона Маска и DOGIE COIN
+              </h2>
+              <p class="slider__text">
+                Все в шоке, я потерял все деньги
+              </p>
+              <button class="btn slider__btn">
+                <span class="btn__text">ОСТАВИТЬ ЗАЯВКУ</span>
+              </button>
+            </div>
+
+            <div class="slider__right">
+              <p class="slider__para ">DOgie coin</p>
+              <p class="slider__para slider__para--bold">ПАДЕНИЕ</p>
+              <p class="slider__para">ВОЗВРАЩЕНИЕ</p>
             </div>
           </div>
         </div>
-        <div class="slider__item slider__item--t">
-          <div class="slider__item">
-            <div class="slider__item-wrapper container">
-              <div class="slider__left">
-                <h2 class="slider__title">
-                  Полет Илона Маска и DOGIE COIN
-                </h2>
-                <p class="slider__text">
-                  Все в шоке, я снова богат
-                </p>
-                <button class="btn slider__btn">
-                  <span class="btn__text">ОСТАВИТЬ ЗАЯВКУ</span>
-                </button>
-              </div>
 
-              <div class="slider__right">
-                <p class="slider__para ">DOgie coin</p>
-                <p class="slider__para">ПАДЕНИЕ</p>
-                <p class="slider__para slider__para--bold">ВОЗВРАЩЕНИЕ</p>
-              </div>
+        <div class="slider__item slider__item--t">
+          <div class="slider__item-wrapper container">
+            <div class="slider__left">
+              <h2 class="slider__title">
+                Полет Илона Маска и DOGIE COIN
+              </h2>
+              <p class="slider__text">
+                Все в шоке, я снова богат
+              </p>
+              <button class="btn slider__btn">
+                <span class="btn__text">ОСТАВИТЬ ЗАЯВКУ</span>
+              </button>
+            </div>
+
+            <div class="slider__right">
+              <p class="slider__para ">DOgie coin</p>
+              <p class="slider__para">ПАДЕНИЕ</p>
+              <p class="slider__para slider__para--bold">ВОЗВРАЩЕНИЕ</p>
             </div>
           </div>
         </div>
@@ -144,9 +182,6 @@
           <span class="btn__text">ЗАГРУЗИТЬ ЕЩЕ</span>
           <div class="cards__btn-loader loader">
             <div class="loader__bubbles">
-              <div class="loader__bubble">
-                <div class="loader__circle"></div>
-              </div>
               <div class="loader__bubble">
                 <div class="loader__circle"></div>
               </div>
