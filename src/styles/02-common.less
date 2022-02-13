@@ -171,6 +171,10 @@ button {
   &:hover {
     background-color: #fff;
     color: #c2ab81;
+
+    &::after {
+      background-color: #c2ab81;
+    }
   }
 
   .bp(@xl, {
@@ -187,6 +191,7 @@ button {
     width: 5px;
 
     background-color: #fff;
+    transition: background @linear, color @linear;
   }
 
   &__text {
