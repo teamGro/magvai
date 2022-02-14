@@ -197,5 +197,25 @@ button {
   &__text {
     transform: skewX(18deg);
     display: inline-block;
+    white-space: nowrap;
+  }
+}
+
+.overlay {
+  display: none;
+
+  &--active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(2, 2, 2, 0.8);
   }
 }

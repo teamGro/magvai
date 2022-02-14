@@ -48,7 +48,7 @@
           <div class="mobile-nav__bottom-wrapper">
             <a href="tel:+79116394512" class="mobile-nav__phone mobile-nav__elem">
             </a>
-            <button class="mobile-nav__btn mobile-nav__elem">
+            <button class="mobile-nav__btn mobile-nav__elem" data-popup>
               <span class="mobile-nav__btn-text">ОСТАВИТЬ ЗАЯВКУ</span>
             </button>
           </div>
@@ -92,7 +92,7 @@
 
       <div class="header__right">
         <a href="tel:+79116394512" class="header__phone"></a>
-        <button class="header__btn btn">
+        <button class="header__btn btn" data-popup>
           <span class="btn__text">ОСТАВИТЬ ЗАЯВКУ</span>
         </button>
       </div>
@@ -112,7 +112,7 @@
               <p class="slider__text">
                 В прошлый четверг все офигели от полета DOGIE COIN на марс.
               </p>
-              <button class="btn slider__btn">
+              <button class="btn slider__btn" data-popup>
                 <span class="btn__text">ОСТАВИТЬ ЗАЯВКУ</span>
               </button>
             </div>
@@ -134,7 +134,7 @@
               <p class="slider__text">
                 Все в шоке, я потерял все деньги
               </p>
-              <button class="btn slider__btn">
+              <button class="btn slider__btn" data-popup>
                 <span class="btn__text">ОСТАВИТЬ ЗАЯВКУ</span>
               </button>
             </div>
@@ -156,7 +156,7 @@
               <p class="slider__text">
                 Все в шоке, я снова богат
               </p>
-              <button class="btn slider__btn">
+              <button class="btn slider__btn" data-popup>
                 <span class="btn__text">ОСТАВИТЬ ЗАЯВКУ</span>
               </button>
             </div>
@@ -205,7 +205,55 @@
 
   </main>
 
+  <div class="overlay">
+    <div class="popup">
+      <div class="popup__left"></div>
 
+      <div class="popup__right">
+        <div class="popup__content-wrapper">
+
+
+          <h3 class="popup__title">Оставьте заявку</h3>
+          <p class="popup__desc">
+            Оставьте заявку и наш менеджер свяжется с вами <br> в течение 10 -15 минут
+          </p>
+          <form class="popup__form">
+            <div class="popup__input-wrapper">
+              <label for="" class="popup__label">Ваше имя*</label>
+              <input type="text" class="popup__input" data-required>
+            </div>
+
+            <div class="popup__input-wrapper">
+              <label for="" class="popup__label">E-mail*</label>
+              <input type="tel" class="popup__input" data-required>
+            </div>
+
+            <div class="popup__input-wrapper">
+              <label for="" class="popup__label">+7(___)</label>
+              <input type="text" class="popup__input" data-required>
+            </div>
+
+            <div class="popup__input-wrapper">
+              <label for="" class="popup__label">Ваш вопрос*</label>
+              <textarea name="" id="" cols="30" rows="10" class="popup__input popup__input--textarea"></textarea>
+            </div>
+
+            <div class="popup__form-bottom">
+              <button class="btn">
+                <span class="btn__text">ОСТАВИТЬ ЗАЯВКУ</span>
+              </button>
+              <p class="popup__agreement">
+                Нажимая на кнопку “Оставить заявку” вы соглашаетесь с “Пользовательским соглашением”
+              </p>
+            </div>
+          </form>
+          <button class="popup__close" id="closePopup">
+            <img class="popup__close-img" src="./img/close-icon.svg" alt="закрыть">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="./scripts/jquery.js"></script>
   <script src="./scripts/owl.carousel.min.js"></script>

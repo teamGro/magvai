@@ -35,6 +35,23 @@ $(document).ready(() => {
   const mobileNavElement = $('#mobileMenu');
   burgerBtn.on('click', function () {
     toggleBurger.call($(this), 'burger--active', mobileNavElement, 'mobile-nav--active');
+  });
+
+  const showPopupBtn = $('[data-popup]');
+  const overlayElem = $('.overlay');
+  showPopupBtn.on('click', () => {
+    console.log(1);
+    overlayElem.addClass('overlay--active')
+  });
+
+  const closePopupBtn = $('#closePopup');
+  const popupElem = $('.popup');
+  closePopupBtn.on('click', () => {
+    popupElem.addClass('popup--hide');
+    setTimeout(() => {
+      popupElem.removeClass('popup--hide');
+      overlayElem.removeClass('overlay--active');
+    }, 500);
   })
 
 });
