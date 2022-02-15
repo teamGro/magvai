@@ -5,6 +5,7 @@ import {
 } from './cards';
 
 import toggleBurger from './burger';
+import { onInputFocus, onInputBlur, isRequiredFieldsFilled, closePopup } from './popup';
 
 $(document).ready(() => {
   $('#mainSlider').owlCarousel({
@@ -40,19 +41,42 @@ $(document).ready(() => {
   const showPopupBtn = $('[data-popup]');
   const overlayElem = $('.overlay');
   showPopupBtn.on('click', () => {
-    console.log(1);
-    overlayElem.addClass('overlay--active')
+    overlayElem.addClass('overlay--active');
+    $(document.documentElement).css('overflow-y', 'hidden');
+    $(document.body).css('paddin-right', 0);
   });
 
   const closePopupBtn = $('#closePopup');
   const popupElem = $('.popup');
   closePopupBtn.on('click', () => {
-    popupElem.addClass('popup--hide');
-    setTimeout(() => {
-      popupElem.removeClass('popup--hide');
-      overlayElem.removeClass('overlay--active');
-    }, 500);
-  })
+    closePopup(popupElem, overlayElem);
+  });
+
+  const popupForm = $('#popupForm');
+  popupForm.find('input, textarea, label').each(function () {
+    if ($(this).prop('tagName') === 'LABEL') {
+      $(this).on('click', function () {
+        onInputFocus.call($(this).parent().find('input, textarea'));
+        $(this).parent().find('input, textarea').trigger('focus');
+      });
+    }
+
+    $(this).on('focus', onInputFocus);
+    $(this).on('blur', onInputBlur);
+  });
+
+  const sendApplicationBtn = $('#sendApplication');
+  sendApplicationBtn.on('click', (e) => {
+    e.preventDefault();
+    if (!isRequiredFieldsFilled(popupForm)) return;
+    closePopup(popupElem, overlayElem);
+  });
+
+  $(document).on('keydown', (e) => {
+    if (e.keyCode === 27 && overlayElem.hasClass('overlay--active')) {
+      closePopup(popupElem, overlayElem);
+    }
+  });
 
 });
 
